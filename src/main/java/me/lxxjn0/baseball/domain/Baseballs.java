@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Baseballs {
@@ -64,10 +65,27 @@ public class Baseballs {
 
     public int countBalls(final Baseballs comparison) {
         final int strikeCounts = countStrikes(comparison);
-        final int ballCounts = (int)comparison.baseballs.stream()
+        final int sameCounts = (int)comparison.baseballs.stream()
                                                         .filter(this.baseballs::contains)
                                                         .count();
-        return ballCounts - strikeCounts;
+        return sameCounts - strikeCounts;
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        final Baseballs that = (Baseballs)object;
+        return Objects.equals(this.baseballs, that.baseballs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.baseballs);
     }
 
 }
