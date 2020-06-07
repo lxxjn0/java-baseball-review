@@ -58,13 +58,22 @@ class BaseballsTest {
                                          .containsExactlyElementsOf(expected);
     }
 
-    @DisplayName("countStrikes() - Baseballs와 비교하여 스트라이크의 개수를 반환")
+    @DisplayName("countStrikes() - 입력받은 Baseballs와 비교하여 스트라이크의 개수를 반환")
     @Test
-    void countStrikes_Baseballs_ReturnStrikeResult() {
+    void countStrikes_Baseballs_ReturnStrikeCountResult() {
         final Baseballs generatedBaseballs = Baseballs.of(1, 2, 3);
         final Baseballs baseballs = Baseballs.of(1, 4, 3);
 
         assertThat(baseballs.countStrikes(generatedBaseballs)).isEqualTo(2);
+    }
+
+    @DisplayName("countBalls() - 입력받은 Baseballs와 비교하여 볼의 개수를 반환")
+    @Test
+    void countBalls_Baseballs_ReturnBallCountResult() {
+        final Baseballs generatedBaseballs = Baseballs.of(1, 2, 3);
+        final Baseballs baseballs = Baseballs.of(3, 4, 2);
+
+        assertThat(baseballs.countBalls(generatedBaseballs)).isEqualTo(2);
     }
 
 }

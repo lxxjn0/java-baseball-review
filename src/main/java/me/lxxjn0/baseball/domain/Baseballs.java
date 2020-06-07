@@ -57,4 +57,12 @@ public class Baseballs {
                              .count();
     }
 
+    public int countBalls(final Baseballs comparison) {
+        final int strikeCounts = countStrikes(comparison);
+        final int ballCounts = (int)comparison.baseballs.stream()
+                                                        .filter(this.baseballs::contains)
+                                                        .count();
+        return ballCounts - strikeCounts;
+    }
+
 }
