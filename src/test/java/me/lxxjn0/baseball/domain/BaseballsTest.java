@@ -38,4 +38,33 @@ class BaseballsTest {
             .hasMessage("중복된 숫자가 존재합니다.");
     }
 
+    @DisplayName("of() - List<Integer>를 입력받아 해당하는 숫자들로 이루어진 Baseballs를 반환")
+    @Test
+    void of_ListOfNumbers_GenerateInstance() {
+        final List<Integer> numbers = Arrays.asList(1, 2, 3);
+
+        final List<Baseball> expected = Arrays.asList(new Baseball(1), new Baseball(2), new Baseball(3));
+        assertThat(Baseballs.of(numbers)).extracting("baseballs")
+                                         .asList()
+                                         .containsExactlyElementsOf(expected);
+    }
+
+    @DisplayName("of() - ellipsis int 배열을 입력받아 해당하는 숫자들로 이루어진 Baseballs를 반환")
+    @Test
+    void of_EllipsisOfNumbers_GenerateInstance() {
+        final List<Baseball> expected = Arrays.asList(new Baseball(1), new Baseball(2), new Baseball(3));
+        assertThat(Baseballs.of(1, 2, 3)).extracting("baseballs")
+                                         .asList()
+                                         .containsExactlyElementsOf(expected);
+    }
+
+    @DisplayName("countStrikes() - Baseballs와 비교하여 스트라이크의 개수를 반환")
+    @Test
+    void countStrikes_Baseballs_ReturnStrikeResult() {
+        final Baseballs generatedBaseballs = Baseballs.of(1, 2, 3);
+        final Baseballs baseballs = Baseballs.of(1, 4, 3);
+
+        assertThat(baseballs.countStrikes(generatedBaseballs)).isEqualTo(2);
+    }
+
 }
