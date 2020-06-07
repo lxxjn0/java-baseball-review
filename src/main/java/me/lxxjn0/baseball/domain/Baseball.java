@@ -1,15 +1,15 @@
-package me.lxxjn0.ball.domain;
+package me.lxxjn0.baseball.domain;
 
 import java.util.Objects;
 
-public class Ball {
+public class Baseball {
 
     private static final int LOWER_BOUND = 1;
     private static final int UPPER_BOUND = 9;
 
     private final int number;
 
-    public Ball(final int number) {
+    public Baseball(final int number) {
         validate(number);
         this.number = number;
     }
@@ -28,7 +28,7 @@ public class Ball {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        final Ball that = (Ball)object;
+        final Baseball that = (Baseball)object;
         return this.number == that.number;
     }
 
