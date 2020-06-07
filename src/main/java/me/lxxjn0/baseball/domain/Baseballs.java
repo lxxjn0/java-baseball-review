@@ -51,6 +51,11 @@ public class Baseballs {
         }
     }
 
+    public boolean isNothing(final Baseballs comparison) {
+        return comparison.baseballs.stream()
+                                   .noneMatch(this.baseballs::contains);
+    }
+
     public int countStrikes(final Baseballs comparison) {
         return (int)IntStream.range(0, BASEBALLS_SIZE)
                              .filter(index -> this.baseballs.get(index).equals(comparison.baseballs.get(index)))

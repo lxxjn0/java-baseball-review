@@ -58,6 +58,17 @@ class BaseballsTest {
                                          .containsExactlyElementsOf(expected);
     }
 
+    @DisplayName("isNothing() - 입력받은 Baseballs와 비교하여 낫싱인지 여부를 확인")
+    @Test
+    void isNothing_Baseballs_ReturnNothingResult() {
+        final Baseballs nothingBaseballs = Baseballs.of(2, 5, 6);
+        final Baseballs notNothingBaseballs = Baseballs.of(1, 2, 3);
+        final Baseballs baseballs = Baseballs.of(1, 4, 3);
+
+        assertThat(baseballs.isNothing(nothingBaseballs)).isTrue();
+        assertThat(baseballs.isNothing(notNothingBaseballs)).isFalse();
+    }
+
     @DisplayName("countStrikes() - 입력받은 Baseballs와 비교하여 스트라이크의 개수를 반환")
     @Test
     void countStrikes_Baseballs_ReturnStrikeCountResult() {
