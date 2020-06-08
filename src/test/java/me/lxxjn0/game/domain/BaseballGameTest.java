@@ -25,4 +25,14 @@ class BaseballGameTest {
 		assertThat(game).extracting("target").isNotNull();
 	}
 
+	@DisplayName("generateGuessNumbers() - 사용자로부터 입력받은 숫자를 생성하여 guess 필드 초기화")
+	@Test
+	void generateGuessNumbers_Nothing_InitializeGuess() {
+		final NumberGenerator numberGenerator = new RandomNumberGenerator();
+		final BaseballGame game = new BaseballGame(numberGenerator);
+		game.generateGuessNumbers("123");
+
+		assertThat(game).extracting("guess").isNotNull();
+	}
+
 }

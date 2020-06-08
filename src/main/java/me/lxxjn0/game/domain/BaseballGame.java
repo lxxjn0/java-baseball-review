@@ -14,4 +14,8 @@ public class BaseballGame {
 		target = Baseballs.of(targetNumberGenerator.generate());
 	}
 
+	public void generateGuessNumbers(final String guessNumbers) {
+		guess = Baseballs.of(guessNumbers);
+	}
+
 }

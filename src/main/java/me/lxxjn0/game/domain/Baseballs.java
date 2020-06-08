@@ -33,6 +33,16 @@ public class Baseballs {
 			      .collect(toList()));
 	}
 
+	public static Baseballs of(final String guessNumbers) {
+		return IntStream.range(0, guessNumbers.length())
+		                .mapToObj(guessNumbers::charAt)
+		                .map(Character::getNumericValue)
+		                .map(Baseball::new)
+		                .collect(collectingAndThen(
+			                toList(),
+			                Baseballs::new));
+	}
+
 	private void validate(final List<Baseball> baseballs) {
 		validateSize(baseballs);
 		validateDuplication(baseballs);

@@ -58,6 +58,15 @@ class BaseballsTest {
 		                                 .containsExactlyElementsOf(expected);
 	}
 
+	@DisplayName("of() - 문자열을 입력받아 해당하는 숫자들로 이루어진 Baseballs를 반환")
+	@Test
+	void of_StringOfNumbers_GenerateInstance() {
+		final List<Baseball> expected = Arrays.asList(new Baseball(1), new Baseball(2), new Baseball(3));
+		assertThat(Baseballs.of("123")).extracting("baseballs")
+		                               .asList()
+		                               .containsExactlyElementsOf(expected);
+	}
+
 	@DisplayName("isNothing() - 입력받은 Baseballs와 비교하여 낫싱인지 여부를 확인")
 	@Test
 	void isNothing_Baseballs_ReturnNothingResult() {
