@@ -1,4 +1,4 @@
-package me.lxxjn0.baseball.domain;
+package me.lxxjn0.game.domain;
 
 import static java.util.stream.Collectors.*;
 

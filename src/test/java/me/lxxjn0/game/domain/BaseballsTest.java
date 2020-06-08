@@ -1,4 +1,4 @@
-package me.lxxjn0.baseball.domain;
+package me.lxxjn0.game.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -61,30 +61,30 @@ class BaseballsTest {
 	@DisplayName("isNothing() - 입력받은 Baseballs와 비교하여 낫싱인지 여부를 확인")
 	@Test
 	void isNothing_Baseballs_ReturnNothingResult() {
-		final Baseballs nothingBaseballs = Baseballs.of(2, 5, 6);
-		final Baseballs notNothingBaseballs = Baseballs.of(1, 2, 3);
-		final Baseballs baseballs = Baseballs.of(1, 4, 3);
+		final Baseballs nothingTarget = Baseballs.of(2, 5, 6);
+		final Baseballs notNothingTarget = Baseballs.of(1, 2, 3);
+		final Baseballs guess = Baseballs.of(1, 4, 3);
 
-		assertThat(baseballs.isNothing(nothingBaseballs)).isTrue();
-		assertThat(baseballs.isNothing(notNothingBaseballs)).isFalse();
+		assertThat(guess.isNothing(nothingTarget)).isTrue();
+		assertThat(guess.isNothing(notNothingTarget)).isFalse();
 	}
 
 	@DisplayName("countStrikes() - 입력받은 Baseballs와 비교하여 스트라이크의 개수를 반환")
 	@Test
-	void countStrikes_Baseballs_ReturnStrikeCountResult() {
-		final Baseballs generatedBaseballs = Baseballs.of(1, 2, 3);
-		final Baseballs baseballs = Baseballs.of(1, 4, 3);
+	void countStrikes_ComparisonBaseballs_ReturnStrikeCountResult() {
+		final Baseballs target = Baseballs.of(1, 2, 3);
+		final Baseballs guess = Baseballs.of(1, 4, 3);
 
-		assertThat(baseballs.countStrikes(generatedBaseballs)).isEqualTo(2);
+		assertThat(guess.countStrikes(target)).isEqualTo(2);
 	}
 
 	@DisplayName("countBalls() - 입력받은 Baseballs와 비교하여 볼의 개수를 반환")
 	@Test
-	void countBalls_Baseballs_ReturnBallCountResult() {
-		final Baseballs generatedBaseballs = Baseballs.of(1, 2, 3);
-		final Baseballs baseballs = Baseballs.of(3, 4, 2);
+	void countBalls_ComparisonBaseballs_ReturnBallCountResult() {
+		final Baseballs target = Baseballs.of(1, 2, 3);
+		final Baseballs guess = Baseballs.of(3, 4, 2);
 
-		assertThat(baseballs.countBalls(generatedBaseballs)).isEqualTo(2);
+		assertThat(guess.countBalls(target)).isEqualTo(2);
 	}
 
 }
