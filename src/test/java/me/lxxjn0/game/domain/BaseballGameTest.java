@@ -15,4 +15,14 @@ class BaseballGameTest {
 		assertThat(new BaseballGame(numberGenerator)).isInstanceOf(BaseballGame.class);
 	}
 
+	@DisplayName("generateTargetNumbers() - 타겟 숫자를 생성하여 target 필드 초기화")
+	@Test
+	void generateTargetNumbers_Nothing_InitializeTarget() {
+		final NumberGenerator numberGenerator = new RandomNumberGenerator();
+		final BaseballGame game = new BaseballGame(numberGenerator);
+		game.generateTargetNumbers();
+
+		assertThat(game).extracting("target").isNotNull();
+	}
+
 }

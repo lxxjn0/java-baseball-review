@@ -10,4 +10,8 @@ public class BaseballGame {
 		this.targetNumberGenerator = targetNumberGenerator;
 	}
 
+	public void generateTargetNumbers() {
+		target = Baseballs.of(targetNumberGenerator.generate());
+	}
+
 }
