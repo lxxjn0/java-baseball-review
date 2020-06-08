@@ -1,4 +1,4 @@
-package me.lxxjn0.game.domain;
+package me.lxxjn0.game.domain.baseball;
 
 import java.util.Objects;
 

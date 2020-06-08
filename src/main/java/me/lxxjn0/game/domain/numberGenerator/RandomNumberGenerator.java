@@ -1,9 +1,12 @@
-package me.lxxjn0.game.domain;
+package me.lxxjn0.game.domain.numberGenerator;
 
 import static java.util.stream.Collectors.*;
 
 import java.util.List;
 import java.util.Random;
+
+import me.lxxjn0.game.domain.baseball.Baseball;
+import me.lxxjn0.game.domain.baseball.Baseballs;
 
 public class RandomNumberGenerator implements NumberGenerator {
 

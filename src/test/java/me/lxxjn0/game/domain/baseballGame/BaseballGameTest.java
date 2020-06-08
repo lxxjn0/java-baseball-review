@@ -1,9 +1,12 @@
-package me.lxxjn0.game.domain;
+package me.lxxjn0.game.domain.baseballGame;
 
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import me.lxxjn0.game.domain.numberGenerator.NumberGenerator;
+import me.lxxjn0.game.domain.numberGenerator.RandomNumberGenerator;
 
 class BaseballGameTest {
 

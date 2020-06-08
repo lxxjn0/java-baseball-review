@@ -2,7 +2,7 @@ package me.lxxjn0.game.controller;
 
 import static me.lxxjn0.game.view.InputView.*;
 
-import me.lxxjn0.game.domain.BaseballGame;
+import me.lxxjn0.game.domain.baseballGame.BaseballGame;
 
 public class GameController {
 

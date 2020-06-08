@@ -1,4 +1,7 @@
-package me.lxxjn0.game.domain;
+package me.lxxjn0.game.domain.baseballGame;
+
+import me.lxxjn0.game.domain.baseball.Baseballs;
+import me.lxxjn0.game.domain.numberGenerator.NumberGenerator;
 
 public class BaseballGame {
 
