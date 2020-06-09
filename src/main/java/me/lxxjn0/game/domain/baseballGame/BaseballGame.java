@@ -21,4 +21,8 @@ public class BaseballGame {
 		guess = Baseballs.of(guessNumbers);
 	}
 
+	public GameResult getGameResult() {
+		return GameResult.of(target, guess);
+	}
+
 }

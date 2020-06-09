@@ -38,4 +38,15 @@ class BaseballGameTest {
 		assertThat(game).extracting("guess").isNotNull();
 	}
 
+	@DisplayName("getGameResult() - 게임의 결과를 반환")
+	@Test
+	void getGameResult_Nothing_ReturnGameResult() {
+		final NumberGenerator numberGenerator = new RandomNumberGenerator();
+		final BaseballGame game = new BaseballGame(numberGenerator);
+		game.generateTargetNumbers();
+		game.generateGuessNumbers("123");
+
+		assertThat(game.getGameResult()).isInstanceOf(GameResult.class);
+	}
+
 }

@@ -18,6 +18,17 @@ class GameResultTest {
 		assertThat(GameResult.of(target, guess)).isInstanceOf(GameResult.class);
 	}
 
+	@DisplayName("isCorrect() - 게임 결과가 정답인지 여부를 확인")
+	@Test
+	void isCorrect_MatchResultOfGuessAndTarget_ReturnCorrectResult() {
+		final Baseballs target = Baseballs.of(1, 2, 3);
+		final Baseballs correct = Baseballs.of(1, 2, 3);
+		final Baseballs incorrect = Baseballs.of(2, 3, 4);
+
+		assertThat(GameResult.of(target, correct).isCorrect()).isTrue();
+		assertThat(GameResult.of(target, incorrect).isCorrect()).isFalse();
+	}
+
 	@DisplayName("log() - 게임 결과를 로그로 반환")
 	@Test
 	void log_GameResult_ReturnLogByString() {

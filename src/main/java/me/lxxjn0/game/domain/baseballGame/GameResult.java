@@ -27,6 +27,10 @@ public class GameResult {
 		return new GameResult(strikeCounts, ballCounts);
 	}
 
+	public boolean isCorrect() {
+		return strikeCounts == Baseballs.VALID_SIZE;
+	}
+
 	public String log() {
 		if (isNothing()) {
 			return NOTHING_LOG;
