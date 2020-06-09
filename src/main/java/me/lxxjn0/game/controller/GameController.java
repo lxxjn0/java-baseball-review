@@ -1,8 +1,10 @@
 package me.lxxjn0.game.controller;
 
 import static me.lxxjn0.game.view.InputView.*;
+import static me.lxxjn0.game.view.OutputView.*;
 
 import me.lxxjn0.game.domain.baseballGame.BaseballGame;
+import me.lxxjn0.game.domain.baseballGame.GameResult;
 
 public class GameController {
 
@@ -12,9 +14,15 @@ public class GameController {
 		this.game = game;
 	}
 
-	public void play() {
+	private void play() {
+		GameResult gameResult;
 		game.generateTargetNumbers();
-		game.generateGuessNumbers(receiveGuessNumbers());
+
+		do {
+			game.generateGuessNumbers(receiveGuessNumbers());
+			gameResult = game.getGameResult();
+			printGameResult(gameResult.log());
+		} while (gameResult.isFail());
 	}
 
 }

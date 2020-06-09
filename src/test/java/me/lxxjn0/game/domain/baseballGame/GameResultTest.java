@@ -25,8 +25,8 @@ class GameResultTest {
 		final Baseballs correct = Baseballs.of(1, 2, 3);
 		final Baseballs incorrect = Baseballs.of(2, 3, 4);
 
-		assertThat(GameResult.of(target, correct).isCorrect()).isTrue();
-		assertThat(GameResult.of(target, incorrect).isCorrect()).isFalse();
+		assertThat(GameResult.of(target, incorrect).isFail()).isTrue();
+		assertThat(GameResult.of(target, correct).isFail()).isFalse();
 	}
 
 	@DisplayName("log() - 게임 결과를 로그로 반환")
