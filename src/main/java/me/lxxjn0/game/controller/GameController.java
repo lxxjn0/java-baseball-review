@@ -3,16 +3,19 @@ package me.lxxjn0.game.controller;
 import static me.lxxjn0.game.view.InputView.*;
 import static me.lxxjn0.game.view.OutputView.*;
 
-import me.lxxjn0.game.domain.baseballGame.BaseballGame;
+import me.lxxjn0.game.domain.baseball.Baseballs;
 import me.lxxjn0.game.domain.baseballGame.GameResult;
 import me.lxxjn0.game.domain.baseballGame.Opinion;
+import me.lxxjn0.game.domain.numberGenerator.NumberGenerator;
 
 public class GameController {
 
-	private final BaseballGame game;
+	private final NumberGenerator targetNumberGenerator;
+	private Baseballs target;
+	private Baseballs guess;
 
-	public GameController(final BaseballGame game) {
-		this.game = game;
+	public GameController(final NumberGenerator targetNumberGenerator) {
+		this.targetNumberGenerator = targetNumberGenerator;
 	}
 
 	public void run() {
@@ -28,11 +31,11 @@ public class GameController {
 
 	private void play() {
 		GameResult gameResult;
-		game.generateTargetNumbers();
+		target = Baseballs.of(targetNumberGenerator.generate());
 
 		do {
-			game.generateGuessNumbers(receiveGuessNumbers());
-			gameResult = game.getGameResult();
+			guess = Baseballs.of(receiveGuessNumbers());
+			gameResult = GameResult.of(target, guess);
 			printGameResult(gameResult.log());
 		} while (gameResult.isFail());
 
