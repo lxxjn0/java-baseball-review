@@ -5,6 +5,7 @@ import static me.lxxjn0.game.view.OutputView.*;
 
 import me.lxxjn0.game.domain.baseballGame.BaseballGame;
 import me.lxxjn0.game.domain.baseballGame.GameResult;
+import me.lxxjn0.game.domain.baseballGame.Opinion;
 
 public class GameController {
 
@@ -12,6 +13,17 @@ public class GameController {
 
 	public GameController(final BaseballGame game) {
 		this.game = game;
+	}
+
+	public void run() {
+		Opinion opinion;
+
+		do {
+			play();
+			opinion = Opinion.of(receiveContinueOpinion());
+		} while (opinion.isContinue());
+
+		printFinish();
 	}
 
 	private void play() {
@@ -23,6 +35,8 @@ public class GameController {
 			gameResult = game.getGameResult();
 			printGameResult(gameResult.log());
 		} while (gameResult.isFail());
+
+		printCorrect();
 	}
 
 }
