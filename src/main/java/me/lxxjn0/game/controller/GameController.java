@@ -11,8 +11,6 @@ import me.lxxjn0.game.domain.numberGenerator.NumberGenerator;
 public class GameController {
 
 	private final NumberGenerator targetNumberGenerator;
-	private Baseballs target;
-	private Baseballs guess;
 
 	public GameController(final NumberGenerator targetNumberGenerator) {
 		this.targetNumberGenerator = targetNumberGenerator;
@@ -31,7 +29,8 @@ public class GameController {
 
 	private void play() {
 		GameResult gameResult;
-		target = Baseballs.of(targetNumberGenerator.generate());
+		Baseballs guess;
+		Baseballs target = Baseballs.of(targetNumberGenerator.generate());
 
 		do {
 			guess = Baseballs.of(receiveGuessNumbers());
