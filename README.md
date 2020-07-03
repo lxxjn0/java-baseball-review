@@ -41,3 +41,4 @@
 ## 미션 구현 목표
 
 - [x] 테스트 코드 커버리지 95% 이상으로 유지
+  ![image](https://user-images.githubusercontent.com/48052622/86452353-2348cf00-bd57-11ea-88ec-b913d062d96b.png)
